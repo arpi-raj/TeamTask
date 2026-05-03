@@ -10,8 +10,8 @@ const errorMiddleWare = require("./middlewares/error-middleware");
 
 
 const corsOptions={
-    origin: "*",
-    methods:"GET,POST,PUT ,DELETE,PATCH,HEAD",
+    origin: process.env.FRONTEND_URL || "http://localhost:5173", // Use env variable for Railway frontend URL, fallback to localhost
+    methods:"GET,POST,PUT,DELETE,PATCH,HEAD",
     credentials:true
 }
 app.use(cors(corsOptions));
