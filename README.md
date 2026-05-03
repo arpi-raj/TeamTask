@@ -35,8 +35,8 @@ The project is divided into a robust REST API backend and a responsive, modern f
 Fork and clone the repo
 
 ```bash
-git clone git@github.com:<YOUR_USERNAME>/TeamTaskManager.git
-cd TeamTaskManager
+git clone git@github.com:arpi-raj/TeamTask.git
+cd TeamTask
 ```
 
 ## Install dependencies
