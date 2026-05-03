@@ -10,7 +10,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/tasks/my-tasks", {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/tasks/my-tasks`, {
           headers: {
             Authorization: authorizationToken,
           },

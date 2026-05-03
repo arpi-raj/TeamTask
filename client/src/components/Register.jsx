@@ -28,7 +28,7 @@ export default function Register() {
     console.log("Registration : " + JSON.stringify(registrationDetails));
     try {
       const reg_response = await fetch(
-        `http://localhost:5000/api/auth/register`,
+        `${import.meta.env.VITE_API_URL}/auth/register`,
         {
           method: "POST",
           headers: {

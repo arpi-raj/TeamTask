@@ -24,7 +24,7 @@ const userAuthentication=async ()=>{
    try {
     setIsLoading(true);
     const user_response = await fetch(
-      `http://localhost:5000/api/auth/user`,
+      `${import.meta.env.VITE_API_URL}/auth/user`,
       {
         method: "GET",
         headers: {

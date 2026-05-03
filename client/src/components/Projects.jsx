@@ -12,7 +12,7 @@ const Projects = () => {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/projects", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/projects`, {
         headers: {
           Authorization: authorizationToken,
         },
@@ -35,7 +35,7 @@ const Projects = () => {
   const handleCreateProject = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/projects", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/projects`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -59,7 +59,7 @@ const Projects = () => {
   const handleDeleteProject = async (projectId) => {
     if (!window.confirm("Are you sure you want to delete this project? All tasks will be lost.")) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/projects/${projectId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/projects/${projectId}`, {
         method: "DELETE",
         headers: {
           Authorization: authorizationToken,

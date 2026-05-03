@@ -17,10 +17,10 @@ const ProjectDetails = () => {
   const fetchProjectData = async () => {
     try {
       const [projRes, tasksRes] = await Promise.all([
-        fetch(`http://localhost:5000/api/projects/${id}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/projects/${id}`, {
           headers: { Authorization: authorizationToken },
         }),
-        fetch(`http://localhost:5000/api/tasks/project/${id}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/tasks/project/${id}`, {
           headers: { Authorization: authorizationToken },
         }),
       ]);
@@ -47,7 +47,7 @@ const ProjectDetails = () => {
   const handleCreateTask = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/tasks", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/tasks`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -72,7 +72,7 @@ const ProjectDetails = () => {
   const handleAddMember = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5000/api/projects/${id}/members`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/projects/${id}/members`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -97,7 +97,7 @@ const ProjectDetails = () => {
   const handleDeleteTask = async (taskId) => {
     if (!window.confirm("Are you sure you want to delete this task?")) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/tasks/${taskId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/tasks/${taskId}`, {
         method: "DELETE",
         headers: { Authorization: authorizationToken },
       });
@@ -115,7 +115,7 @@ const ProjectDetails = () => {
   const handleRemoveMember = async (userId) => {
     if (!window.confirm("Are you sure you want to remove this member?")) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/projects/${id}/members/${userId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/projects/${id}/members/${userId}`, {
         method: "DELETE",
         headers: { Authorization: authorizationToken },
       });
